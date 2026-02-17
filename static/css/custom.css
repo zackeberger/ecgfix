@@ -1,0 +1,451 @@
+/*
+ * custom.css
+ *
+ * Project-specific styles for the ECGFix paper page.
+ * Bulma handles base layout and component primitives; this file keeps
+ * only the overrides and custom components used by this page.
+ */
+
+:root {
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-text: #1e293b;
+  --color-muted: #64748b;
+  --color-muted-soft: #94a3b8;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-bg-soft: #f8fafc;
+  --color-bg-card: #ffffff;
+  --color-accent: #0ea5e9;
+  --color-accent-hover: #0284c7;
+  --color-dark: #0f172a;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.section {
+  padding: 2.5rem 1.5rem;
+}
+
+/* Buttons used for arXiv/code links */
+.button {
+  border-radius: var(--radius-md) !important;
+  font-weight: 600 !important;
+}
+
+.button.is-dark {
+  background: var(--color-dark) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.button.is-dark:hover {
+  background: #1f2937 !important;
+}
+
+.button:focus-visible,
+.copy-bibtex-btn:focus-visible,
+.icon-btn:focus-visible,
+.name-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.link-block a {
+  margin: 8px 4px;
+}
+
+.publication-links .link-block {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.publication-links .button {
+  vertical-align: middle;
+}
+
+.publication-links .button .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.publication-links .button .icon .ai {
+  font-size: 1em;
+  line-height: 1;
+}
+
+.publication-links .button .icon .icon-svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+/* Heading and content typography */
+.publication-title {
+  font-weight: 800 !important;
+  color: var(--color-text) !important;
+  line-height: 1.1 !important;
+  margin-bottom: 2rem !important;
+}
+
+.title.is-3 {
+  font-weight: 700 !important;
+  color: var(--color-text);
+  margin-bottom: 1.5rem !important;
+  position: relative;
+  padding-bottom: 0.9rem;
+}
+
+.title.is-3::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.content.has-text-justified {
+  color: var(--color-muted);
+  line-height: 1.8;
+}
+
+/* Top author strip */
+.top-authors {
+  margin-top: 0.75rem;
+}
+
+.top-authors-grid {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.top-author {
+  min-width: 190px;
+  text-align: center;
+}
+
+.top-author-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.top-author-affil {
+  margin-top: 0.15rem;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
+.equal-note {
+  margin-top: 0.75rem;
+  color: var(--color-muted-soft);
+  text-align: center;
+}
+
+.name-link {
+  position: relative;
+  display: inline-block;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.name-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background: currentColor;
+  transition: width 220ms ease;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.name-link:hover {
+  color: var(--color-accent-hover);
+}
+
+.name-link:hover::after {
+  width: 100%;
+}
+
+.name-link,
+.icon-btn {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Teaser and section spacing */
+.top-hero .hero-body {
+  padding-bottom: 1.25rem !important;
+}
+
+.tldr-section {
+  padding-top: 1.25rem !important;
+}
+
+.tldr-line {
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.figure-slot {
+  margin-top: 1rem;
+}
+
+.conference-block {
+  display: block;
+  margin-top: 1.25rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* BibTeX card and copy button */
+pre {
+  background: var(--color-bg-soft) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 1.25rem !important;
+  overflow-x: auto;
+}
+
+code {
+  background: transparent !important;
+  color: var(--color-text) !important;
+  font-family: "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", monospace !important;
+}
+
+.bibtex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.copy-bibtex-btn {
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: background 120ms ease, transform 120ms ease;
+}
+
+.copy-bibtex-btn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.copy-bibtex-btn.is-copied {
+  background: #059669;
+}
+
+/* Author cards */
+#authors .title::before,
+#authors .title::after {
+  display: none !important;
+}
+
+#authors .title {
+  border: 0 !important;
+  padding-left: 0 !important;
+  box-shadow: none !important;
+}
+
+.author-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.author-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--color-bg-card);
+}
+
+.author-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  flex: 0 0 auto;
+  background: #f1f5f9;
+  display: grid;
+  place-items: center;
+}
+
+.author-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.author-avatar-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.author-avatar.avatar-missing .author-avatar-img {
+  display: none;
+}
+
+.author-avatar.avatar-missing .author-avatar-fallback {
+  display: flex;
+}
+
+.author-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.author-name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.author-card-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.author-icons {
+  display: inline-flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.icon-btn:hover {
+  background: var(--color-border);
+  border-color: var(--color-border-strong);
+  color: var(--color-dark);
+}
+
+.icon-btn .icon-svg {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.copy-bibtex-btn .icon-svg {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+.icon-svg {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Toast used for unreleased-code message */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(15, 23, 42, 0.95);
+  color: #ffffff;
+  padding: 0.7rem 0.95rem;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+  z-index: 9999;
+  max-width: min(520px, calc(100vw - 32px));
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .publication-title {
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .author-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    margin: 0.25rem !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .author-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}

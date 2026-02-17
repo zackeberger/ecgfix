@@ -1,12 +1,335 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>ECGFix</title>
-  </head>
-  <body>
-    <h1>Evaluation of ECG Representations Must Be Fixed</h1>
-    <p>Coming soon.</p>
-  </body>
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Evaluation of ECG Representations Must Be Fixed</title>
+  <meta name="title" content="Evaluation of ECG Representations Must Be Fixed" />
+  <meta name="description" content="Project page for: Evaluation of ECG Representations Must Be Fixed." />
+  <meta name="keywords"
+    content="ECG, representation learning, evaluation, benchmarking, machine learning, healthcare" />
+  <meta name="author" content="Zachary Berger, Daniel Prakah-Asante, John Guttag, Collin M. Stultz" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.png" />
+
+  <!-- Academic Project Page Template CSS -->
+  <link rel="stylesheet" href="static/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+
+  <!-- Project styles -->
+  <link rel="stylesheet" href="static/css/custom.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="hero top-hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+
+              <!-- Title with forced line break -->
+              <h1 class="title is-1 publication-title">
+                Evaluation of ECG Representations<br />
+                Must Be Fixed
+              </h1>
+
+              <!-- Top authors: name + affiliation under -->
+              <div class="top-authors">
+                <div class="top-authors-grid">
+                  <div class="top-author">
+                    <div class="top-author-name">
+                      <a class="name-link" href="https://zackberger.com/" target="_blank" rel="noopener noreferrer">
+                        Zachary Berger
+                      </a><sup>*</sup>
+                    </div>
+                    <div class="top-author-affil">MIT CSAIL &amp; MGH</div>
+                  </div>
+
+                  <div class="top-author">
+                    <div class="top-author-name">
+                      <!-- TODO: add Daniel personal link -->
+                      <span class="name-link">Daniel Prakah-Asante</span><sup>*</sup>
+                    </div>
+                    <div class="top-author-affil">MIT CSAIL &amp; MGH</div>
+                  </div>
+
+                  <div class="top-author">
+                    <div class="top-author-name">
+                      <a class="name-link" href="https://people.csail.mit.edu/guttag/" target="_blank"
+                        rel="noopener noreferrer">
+                        John Guttag
+                      </a>
+                    </div>
+                    <div class="top-author-affil">MIT CSAIL</div>
+                  </div>
+
+                  <div class="top-author">
+                    <div class="top-author-name">
+                      <a class="name-link" href="https://hst.mit.edu/faculty-research/faculty/stultz-collin/"
+                        target="_blank" rel="noopener noreferrer">
+                        Collin M. Stultz
+                      </a>
+                    </div>
+                    <div class="top-author-affil">MIT CSAIL &amp; MGH</div>
+                  </div>
+                </div>
+
+                <!-- TODO: add accepted conference name
+                <span class="conference-block">2026 Preprint</span> -->
+                <div class="equal-note">
+                  <small><sup>*</sup> Indicates equal contribution</small>
+                </div>
+              </div>
+
+              <!-- Buttons: Code + arXiv -->
+              <div class="publication-links">
+                <span class="link-block">
+                  <!-- TODO: set to arXiv URL -->
+                  <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" rel="noopener noreferrer"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <!-- TODO: set to code URL -->
+                  <button type="button" class="external-link button is-normal is-rounded is-dark code-unreleased"
+                    data-toast="Code will be released upon publication"
+                    aria-label="Code (unavailable until publication)">
+                    <span class="icon">
+                      <svg class="icon-svg" viewBox="0 0 16 16" aria-hidden="true">
+                        <path fill="currentColor"
+                          d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38l-.01-1.33c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52 0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.14.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+                      </svg>
+                    </span>
+                    <span>Code</span>
+                  </button>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TL;DR + Figure -->
+    <section class="section tldr-section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <h4 class="tldr-line">
+              <b>tl;dr:</b>
+              Current evaluation of ECG representations is flawed. We must revise and standardize the field's
+              benchmarking practice to ensure that progress is reliable and clinically meaningful.
+            </h4>
+
+            <div class="figure-slot">
+              <figure class="image">
+                <img src="static/images/teaser.svg" alt="Teaser figure" />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                This position paper argues that current benchmarking practice in 12-lead ECG representation learning
+                must be fixed to ensure progress is reliable and aligned with clinically meaningful objectives. The
+                field has largely converged on three public multi-label benchmarks (PTB-XL, CPSC2018, CSN) dominated by
+                arrhythmia and waveform-morphology labels, even though the ECG is known to encode substantially broader
+                clinical information. We argue that downstream evaluation should expand to include an assessment of
+                structural heart disease and patient-level forecasting, in addition to other evolving ECG-related
+                endpoints, as relevant clinical targets. Next, we outline evaluation best practices for multi-label,
+                imbalanced settings, and show that when they are applied, the literature's current conclusion about
+                which representations perform best is altered. Furthermore, we demonstrate the surprising result that a
+                randomly initialized encoder with linear evaluation matches state-of-the-art pre-training on many tasks.
+                This motivates the use of a random encoder as a reasonable baseline model. We substantiate our
+                observations with an empirical evaluation of three representative ECG pre-training approaches across six
+                evaluation settings: the three standard benchmarks, a structural disease dataset, hemodynamic inference,
+                and patient forecasting.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bibtex -->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2>
+          <button class="copy-bibtex-btn" type="button" data-copy-target="bibtex-code" title="Copy BibTeX to clipboard">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.8" />
+              <path d="M15 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+
+        <pre id="bibtex-code"><code>@article{Berger2026ECGFix,
+  title   = {Position: Evaluation of ECG Representations Must Be Fixed},
+  author  = {Berger, Zachary and Prakah-Asante, Daniel and Guttag, John and Stultz, Collin M.},
+  year    = {2026},
+  note    = {Preprint},
+  url     = {https://arxiv.org/abs/XXXX.XXXXX}
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- Authors -->
+    <section class="section" id="authors">
+      <div class="container is-max-desktop content">
+        <h2 class="title is-3">Authors</h2>
+
+        <div class="author-cards">
+          <!-- Zachary -->
+          <div class="author-card">
+            <div class="author-avatar">
+              <img class="author-avatar-img" src="static/images/authors/zack.webp" alt="Zachary Berger"
+                data-initials="ZB" />
+              <span class="author-avatar-fallback" aria-hidden="true">ZB</span>
+            </div>
+            <div class="author-info">
+              <div class="author-name-row">
+                <div class="author-card-name">Zachary Berger</div>
+                <div class="author-icons">
+                  <a class="icon-btn" href="https://zackberger.com/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Website">
+                    <svg class="icon-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" />
+                      <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                  </a>
+                  <a class="icon-btn" href="https://github.com/zackeberger" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
+                    <svg class="icon-svg" viewBox="0 0 16 16" aria-hidden="true">
+                      <path fill="currentColor"
+                        d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38l-.01-1.33c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52 0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.14.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+                    </svg>
+                  </a>
+                  <a class="icon-btn" href="https://bsky.app/profile/zberger.bsky.social" target="_blank"
+                    rel="noopener noreferrer" aria-label="Bluesky">
+                    <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                      <path
+                        d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Daniel -->
+          <div class="author-card">
+            <div class="author-avatar">
+              <img class="author-avatar-img" src="static/images/authors/daniel.svg" alt="Daniel Prakah-Asante"
+                data-initials="DP" />
+              <span class="author-avatar-fallback" aria-hidden="true">DP</span>
+            </div>
+            <div class="author-info">
+              <div class="author-name-row">
+                <div class="author-card-name">Daniel Prakah-Asante</div>
+                <div class="author-icons">
+                  <span class="icon-btn" title="Website link coming soon">
+                    <svg class="icon-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" />
+                      <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                  <span class="icon-btn" title="GitHub link coming soon">
+                    <svg class="icon-svg" viewBox="0 0 16 16" aria-hidden="true">
+                      <path fill="currentColor"
+                        d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38l-.01-1.33c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52 0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.14.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- John -->
+          <div class="author-card">
+            <div class="author-avatar">
+              <img class="author-avatar-img" src="static/images/authors/john.webp" alt="John Guttag"
+                data-initials="JG" />
+              <span class="author-avatar-fallback" aria-hidden="true">JG</span>
+            </div>
+            <div class="author-info">
+              <div class="author-name-row">
+                <div class="author-card-name">John Guttag</div>
+                <div class="author-icons">
+                  <a class="icon-btn" href="https://people.csail.mit.edu/guttag/" target="_blank"
+                    rel="noopener noreferrer" aria-label="Website">
+                    <svg class="icon-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" />
+                      <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collin -->
+          <div class="author-card">
+            <div class="author-avatar">
+              <img class="author-avatar-img" src="static/images/authors/collin.webp" alt="Collin M. Stultz"
+                data-initials="CS" />
+              <span class="author-avatar-fallback" aria-hidden="true">CS</span>
+            </div>
+            <div class="author-info">
+              <div class="author-name-row">
+                <div class="author-card-name">Collin M. Stultz</div>
+                <div class="author-icons">
+                  <a class="icon-btn" href="https://hst.mit.edu/faculty-research/faculty/stultz-collin/" target="_blank"
+                    rel="noopener noreferrer" aria-label="Website">
+                    <svg class="icon-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" />
+                      <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Project scripts -->
+  <script defer src="static/js/custom.js"></script>
+  <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
+</body>
+
 </html>
